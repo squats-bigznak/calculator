@@ -2,20 +2,81 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
     font-family: 'Roboto', sans-serif;
-    margin:0px 100px;
+    margin:100px 200px 200px;
     background-color: rgb(64, 64, 63);
     border-style: none;
     font-size: 24px;
 }
 
-.button {
-    background-color: #4CAF50; /* Green */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.innershell{
+    background-color: #0a0f0a; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 16px;
+
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 1 0;
+    box-sizing: border-box;
+
+
+}
+
+.display{
+    background-color: #4d524d; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    height: 30px;
+    /* display: inline-flexbox; */
+    font-size: 16px;
+    margin: 1px;
+
+}
+
+
+button {
+    /* box-sizing: border-box; */
+    border: 10px;
+    width: 100%;
+    color: white;
+    padding: 15px 32px;
+    margin: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+  }
+
+  .special{
+    background-color: #4CAF50;
+    flex: 1 1 0;
+
+  }
+
+  .operand{
+    background-color: #e0da5e;
+    flex: 1;
+  }
+
+  .operator{
+    background-color: #42a6e4;
+    width: 100px;
   }
