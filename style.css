@@ -5,9 +5,10 @@ body{
     /* align-items: center; */
     font-family: 'Roboto', sans-serif;
     margin:100px 200px 200px;
-    background-color: rgb(64, 64, 63);
+    background-color: rgb(191, 191, 238);
     border-style: none;
     font-size: 24px;
+    
 }
 
 .container{
@@ -15,18 +16,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .innershell{
-    background-color: #0a0f0a; /* Green */
+    background-color: #171618; /* Green */
     border: none;
-    color: white;
+    color: rgb(218, 159, 159);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     /* display: inline-block; */
     font-size: 16px;
-
+    border-radius: 10px;
 }
 
 .row{
@@ -40,7 +42,7 @@ body{
 }
 
 .display{
-    background-color: #4d524d; /* Green */
+    background-color: #8c908c; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -48,6 +50,7 @@ body{
     /* display: inline-flexbox; */
     font-size: 16px;
     margin: 1px;
+    border-radius: 10px;
 
 }
 
@@ -63,20 +66,21 @@ button {
     text-decoration: none;
     /* display: inline-block; */
     font-size: 16px;
+    border-radius: 10px;
   }
 
   .special{
-    background-color: #4CAF50;
-    flex: 1 1 0;
+    background-color: #038b05;
+    width: 100px;
 
   }
 
   .operand{
-    background-color: #e0da5e;
+    background-color: #938c04;
     flex: 1;
   }
 
   .operator{
-    background-color: #42a6e4;
+    background-color: #160c88;
     width: 100px;
   }
