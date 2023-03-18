@@ -1,0 +1,10 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    margin:0px 100px;
+    background-color: rgb(64, 64, 63);
+    border-style: none;
+    font-size: 24px;
+}
