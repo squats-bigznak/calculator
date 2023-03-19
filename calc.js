@@ -16,13 +16,38 @@
 
 //also implement AC button "all clear" which restarts procedure
 
+function computeEquation(firstOpString, operator, secondOpString){
 
-let firstOperandFloat = 0;
-let secondOperandFloat = 0;
+        let firstNumber = castOperandStringToFloat(firstOpString);
+        let secondNumber = castOperandStringToFloat(secondOpString);
+        let result = 0;
+        switch (operator) {
+                case 'divide':
+                        result = divideOperation(firstNumber,secondNumber);
+                        displaytext.textContent += " = " + (result);
+                        break;
+                case 'multiply':
+                        result = mutiplyOperation(firstNumber,secondNumber);
+                        displaytext.textContent += " = " + (result);
+                        break;
+                case 'subtract':
+                        result = subtractOperation(firstNumber,secondNumber);
+                        displaytext.textContent += " = " + (result);
+                        break;
+                case 'add':
+                        result = addOperation(firstNumber,secondNumber)
+                        displaytext.textContent += " = " + (result);
+                        break;             
+              }
+}       
+
+let firstOperandString = "";
+let secondOperandString = "";
 let unassignedOperandString = "";
 let unassignedOperandFloat = "";
-let operatorChoice = "";
+let operatorChoice = new String();
 let decimalCount = 0;
+// let operatorCount = 0;
 
 const display = document.querySelector('.display');
 
@@ -35,24 +60,80 @@ display.appendChild(displaytext);
 
 
 function addDigitToOperandString(digit){
+        //only add decimal once per string
         if (digit == '.'){
                 decimalCount++;
                 if (decimalCount > 1){
                         return;
                 }
-        }      
+        }
+
         unassignedOperandString = unassignedOperandString + digit;
+        
         console.log(unassignedOperandString);
         displaytext.textContent += digit;
         return unassignedOperandString;
 }
 
 function castOperandStringToFloat(string){
-        unassignedOperandFloat = parseFloat(unassignedOperandString);
+        return (parseFloat(string));
 }
 
-function chooseOperator(string){
+function chooseOperator(operator){
+        //check if operator has been declared before
+        if (operatorChoice != ""){
+                return;
+        }
+        else{
+                //send first string to first operand
+                firstOperandString = unassignedOperandString;
+                //zero out unassignedOperandString
+                unassignedOperandString = "";
+                operatorChoice = operator;
+                switch (operator) {
+                        case 'divide':
+                                displaytext.textContent += " / ";
+                                break;
+                        case 'multiply':
+                                displaytext.textContent += " * ";
+                                break;
+                        case 'subtract':
+                                displaytext.textContent += " - ";
+                                break;
+                        case 'add':
+                                displaytext.textContent += " + ";
+                                break;
+                
+                }
+        }
+        
+}
 
+
+
+function addOperation(a,b){
+        
+        return (a + b);
+}
+
+function subtractOperation(a,b){
+        return (a - b)
+}
+
+function mutiplyOperation(a,b){
+        return (a * b)
+}
+
+function divideOperation(a,b){
+        return (a / b)
+}
+
+function decimalTransformation(a){
+        return (a/100)
+}
+
+function signTransformation(a){
+        return (0 - a)
 }
 
 
@@ -80,20 +161,22 @@ const zerobtn = document.getElementById("zerobtn");
 zerobtn.addEventListener("click", () => addDigitToOperandString(0));
 const decimalbtn = document.getElementById("decimalbtn");
 decimalbtn.addEventListener("click", () => addDigitToOperandString('.'));
-// const dividebtn = document.getElementById("dividebtn");
-// dividebtn.addEventListener("click", () => );
-// const multiplybtn = document.getElementById("multiplybtn");
-// multiplybtn.addEventListener("click", () => );
-// const subtractbtn = document.getElementById("subtractbtn");
-// subtractbtn.addEventListener("click", () => );
-// const addbtn = document.getElementById("addbtn");
-// addbtn.addEventListener("click", () => );
+const dividebtn = document.getElementById("dividebtn");
+dividebtn.addEventListener("click", () => chooseOperator('divide'));
+const multiplybtn = document.getElementById("multiplybtn");
+multiplybtn.addEventListener("click", () => chooseOperator('multiply'));
+const subtractbtn = document.getElementById("subtractbtn");
+subtractbtn.addEventListener("click", () => chooseOperator('subtract'));
+const addbtn = document.getElementById("addbtn");
+addbtn.addEventListener("click", () => chooseOperator('add'));
 // const acbtn = document.getElementById("acbtn");
 // acbtn.addEventListener("click", () => );
 // const percentbtn = document.getElementById("percentbtn");
 // percentbtn.addEventListener("click", () => );
 // const signbtn = document.getElementById("signbtn");
 // signbtn.addEventListener("click", () => );
+const equalsbtn = document.getElementById("equalsbtn");
+equalsbtn.addEventListener("click", () => computeEquation(firstOperandString, operatorChoice, unassignedOperandString));
 
 
 
