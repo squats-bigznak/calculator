@@ -2,32 +2,28 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     font-family: 'Roboto', sans-serif;
     margin:100px 200px 200px;
     background-color: rgb(191, 191, 238);
     border-style: none;
     font-size: 32px;
     font-weight: bold;
-    
 }
 
 .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;  
 }
 
 .innershell{
-    background-color: #171618; /* Green */
+    background-color: #171618; 
     border: none;
     color: rgb(218, 159, 159);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    /* display: inline-block; */
     font-size: 16px;
     border-radius: 10px;
 }
@@ -38,26 +34,21 @@ body{
     justify-content: space-between;
     flex: 1 1 0;
     box-sizing: border-box;
-
-
 }
 
 .display{
-    background-color: #8c908c; /* Green */
+    background-color: #8c908c;
     border: none;
     color: white;
     padding: 15px 32px;
     height: 30px;
-    /* display: inline-flexbox; */
     font-size: 24px;
     margin: 1px;
     border-radius: 10px;
 
 }
 
-
 button {
-    /* box-sizing: border-box; */
     border: 10px;
     width: 100%;
     color: white;
@@ -65,7 +56,6 @@ button {
     margin: 1px;
     text-align: center;
     text-decoration: none;
-    /* display: inline-block; */
     font-size: 20px;
     border-radius: 10px;
   }
@@ -73,7 +63,6 @@ button {
   .special{
     background-color: #038b05;
     width: 100px;
-
   }
 
   .operand{

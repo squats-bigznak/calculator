@@ -89,7 +89,7 @@ function castOperandStringToFloat(string){
 
 function chooseOperator(operator){
         //check if operator has been declared before
-        if (operatorChoice != ""){
+        if ((operatorChoice != "")){
                 return;
         }
         else{
@@ -145,6 +145,36 @@ function moduloOperation(a,b){
         return (a%b)
 }
 
+function makeNegative(){
+        unassignedOperandString *= -1;
+        if (firstOperandString == ""){
+        displaytext.textContent = ((unassignedOperandString));
+        console.log(firstOperandString);
+        return;
+        }else{
+        displaytext.textContent = ((firstOperandString) + (operatorRenamer(operatorChoice)) + (unassignedOperandString));
+        return;
+        }
+}
+
+function operatorRenamer(operatorChoice){
+        switch (operatorChoice) {
+                case 'divide':
+                        return (" / ");
+                case 'multiply':
+                        return (" * ");
+                case 'subtract':
+                        return (" - ");
+                case 'add':
+                        return (" + ");
+                case 'power':
+                        return (" ^ ");
+                case 'modulo':
+                        return (" mod ");  
+        }
+
+}
+
 function clearAll(){
         firstOperandString = "";
         secondOperandString = "";
@@ -166,6 +196,9 @@ function ansReset(answer){
         displaytext.textContent = (answer);
 
 }
+
+
+//mess of event listeners that I don't quite know how to loop over yet
 
 const onebtn = document.getElementById("onebtn");
 onebtn.addEventListener("click", () => addDigitToOperandString(1));
@@ -199,9 +232,14 @@ const addbtn = document.getElementById("addbtn");
 addbtn.addEventListener("click", () => chooseOperator('add'));
 const acbtn = document.getElementById("acbtn");
 acbtn.addEventListener("click", () => clearAll());
-const powerbtn = document.getElementById("powerbtn");
-powerbtn.addEventListener("click", () => chooseOperator('power'));
 const modbtn = document.getElementById("modbtn");
 modbtn.addEventListener("click", () => chooseOperator('modulo'));
+const powerbtn = document.getElementById("powerbtn");
+powerbtn.addEventListener("click", () => chooseOperator('power'));
+const negbtn = document.getElementById("negbtn");
+negbtn.addEventListener("click", () => makeNegative());
 const equalsbtn = document.getElementById("equalsbtn");
 equalsbtn.addEventListener("click", () => computeEquation(firstOperandString, operatorChoice, unassignedOperandString));
+
+
+
