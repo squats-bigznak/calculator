@@ -136,6 +136,17 @@ function signTransformation(a){
         return (0 - a)
 }
 
+function clearAll(){
+        let firstOperandString = "";
+        let secondOperandString = "";
+        let unassignedOperandString = "";
+        let unassignedOperandFloat = "";
+        let operatorChoice = new String();
+        let decimalCount = 0;
+        displaytext.textContent = "";
+
+}
+
 
 //mess of event listeners that I don't quite know how to loop over yet
 
@@ -169,8 +180,8 @@ const subtractbtn = document.getElementById("subtractbtn");
 subtractbtn.addEventListener("click", () => chooseOperator('subtract'));
 const addbtn = document.getElementById("addbtn");
 addbtn.addEventListener("click", () => chooseOperator('add'));
-// const acbtn = document.getElementById("acbtn");
-// acbtn.addEventListener("click", () => );
+const acbtn = document.getElementById("acbtn");
+acbtn.addEventListener("click", () => clearAll());
 // const percentbtn = document.getElementById("percentbtn");
 // percentbtn.addEventListener("click", () => );
 // const signbtn = document.getElementById("signbtn");
