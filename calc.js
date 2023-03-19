@@ -24,20 +24,29 @@ function computeEquation(firstOpString, operator, secondOpString){
         switch (operator) {
                 case 'divide':
                         result = divideOperation(firstNumber,secondNumber);
-                        displaytext.textContent += " = " + (result);
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
                         break;
                 case 'multiply':
                         result = mutiplyOperation(firstNumber,secondNumber);
-                        displaytext.textContent += " = " + (result);
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
                         break;
                 case 'subtract':
                         result = subtractOperation(firstNumber,secondNumber);
-                        displaytext.textContent += " = " + (result);
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
                         break;
                 case 'add':
                         result = addOperation(firstNumber,secondNumber)
-                        displaytext.textContent += " = " + (result);
-                        break;             
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
+                        break;
+                case 'power':
+                        result = powerOperation(firstNumber,secondNumber)
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
+                        break;              
               }
 }       
 
@@ -103,6 +112,10 @@ function chooseOperator(operator){
                         case 'add':
                                 displaytext.textContent += " + ";
                                 break;
+                        case 'power':
+                                displaytext.textContent += " ^ ";
+                                break;
+                        
                 
                 }
         }
@@ -128,8 +141,8 @@ function divideOperation(a,b){
         return (a / b)
 }
 
-function decimalTransformation(a){
-        return (a/100)
+function powerOperation(a,b){
+        return (a**b)
 }
 
 function signTransformation(a){
@@ -137,13 +150,24 @@ function signTransformation(a){
 }
 
 function clearAll(){
-        let firstOperandString = "";
-        let secondOperandString = "";
-        let unassignedOperandString = "";
-        let unassignedOperandFloat = "";
-        let operatorChoice = new String();
-        let decimalCount = 0;
+        firstOperandString = "";
+        secondOperandString = "";
+        unassignedOperandString = "";
+        unassignedOperandFloat = "";
+        operatorChoice = new String();
+        decimalCount = 0;
         displaytext.textContent = "";
+
+}
+
+function ansReset(answer){
+        firstOperandString = "";
+        secondOperandString = "";
+        unassignedOperandString = (answer);
+        unassignedOperandFloat = "";
+        operatorChoice = new String();
+        decimalCount = 0;
+        displaytext.textContent = (answer);
 
 }
 
@@ -182,8 +206,8 @@ const addbtn = document.getElementById("addbtn");
 addbtn.addEventListener("click", () => chooseOperator('add'));
 const acbtn = document.getElementById("acbtn");
 acbtn.addEventListener("click", () => clearAll());
-// const percentbtn = document.getElementById("percentbtn");
-// percentbtn.addEventListener("click", () => );
+const powerbtn = document.getElementById("powerbtn");
+powerbtn.addEventListener("click", () => chooseOperator('power'));
 // const signbtn = document.getElementById("signbtn");
 // signbtn.addEventListener("click", () => );
 const equalsbtn = document.getElementById("equalsbtn");
