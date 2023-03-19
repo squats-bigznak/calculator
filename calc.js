@@ -76,12 +76,11 @@ display.appendChild(displaytext);
 
 function addDigitToOperandString(digit){
         //only add decimal once per string
-        if (digit == '.'){
-                decimalCount++;
-                if (decimalCount > 1){
+        if ((digit == '.') && (unassignedOperandString.includes('.'))){
+                
                         return;
                 }
-        }
+        
 
         unassignedOperandString = unassignedOperandString + digit;
         
