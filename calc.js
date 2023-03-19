@@ -61,7 +61,6 @@ let unassignedOperandString = "";
 let unassignedOperandFloat = "";
 let operatorChoice = new String();
 let decimalCount = 0;
-// let operatorCount = 0;
 
 const display = document.querySelector('.display');
 
@@ -73,17 +72,12 @@ displaytext.textContent = '';
 displaytext.style.cssText = 'color: black;';
 display.appendChild(displaytext);
 
-
 function addDigitToOperandString(digit){
         //only add decimal once per string
-        if ((digit == '.') && (unassignedOperandString.includes('.'))){
-                
+        if ((digit == '.') && (unassignedOperandString.includes('.'))){               
                         return;
-                }
-        
-
-        unassignedOperandString = unassignedOperandString + digit;
-        
+                }      
+        unassignedOperandString = unassignedOperandString + digit;        
         console.log(unassignedOperandString);
         displaytext.textContent += digit;
         return unassignedOperandString;
@@ -122,18 +116,12 @@ function chooseOperator(operator){
                                 break;
                         case 'modulo':
                                 displaytext.textContent += " mod ";
-                                break;
-                        
-                
+                                break;             
                 }
-        }
-        
+        }      
 }
 
-
-
 function addOperation(a,b){
-        
         return (a + b);
 }
 
@@ -157,8 +145,6 @@ function moduloOperation(a,b){
         return (a%b)
 }
 
-
-
 function clearAll(){
         firstOperandString = "";
         secondOperandString = "";
@@ -180,9 +166,6 @@ function ansReset(answer){
         displaytext.textContent = (answer);
 
 }
-
-
-//mess of event listeners that I don't quite know how to loop over yet
 
 const onebtn = document.getElementById("onebtn");
 onebtn.addEventListener("click", () => addDigitToOperandString(1));
@@ -222,6 +205,3 @@ const modbtn = document.getElementById("modbtn");
 modbtn.addEventListener("click", () => chooseOperator('modulo'));
 const equalsbtn = document.getElementById("equalsbtn");
 equalsbtn.addEventListener("click", () => computeEquation(firstOperandString, operatorChoice, unassignedOperandString));
-
-
-
