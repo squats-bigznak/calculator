@@ -46,6 +46,11 @@ function computeEquation(firstOpString, operator, secondOpString){
                         result = powerOperation(firstNumber,secondNumber)
                         // displaytext.textContent += " = " + (result);
                         ansReset(result);
+                        break;  
+                case 'modulo':
+                        result = moduloOperation(firstNumber,secondNumber)
+                        // displaytext.textContent += " = " + (result);
+                        ansReset(result);
                         break;              
               }
 }       
@@ -115,6 +120,9 @@ function chooseOperator(operator){
                         case 'power':
                                 displaytext.textContent += " ^ ";
                                 break;
+                        case 'modulo':
+                                displaytext.textContent += " mod ";
+                                break;
                         
                 
                 }
@@ -145,9 +153,11 @@ function powerOperation(a,b){
         return (a**b)
 }
 
-function signTransformation(a){
-        return (0 - a)
+function moduloOperation(a,b){
+        return (a%b)
 }
+
+
 
 function clearAll(){
         firstOperandString = "";
@@ -208,8 +218,8 @@ const acbtn = document.getElementById("acbtn");
 acbtn.addEventListener("click", () => clearAll());
 const powerbtn = document.getElementById("powerbtn");
 powerbtn.addEventListener("click", () => chooseOperator('power'));
-// const signbtn = document.getElementById("signbtn");
-// signbtn.addEventListener("click", () => );
+const modbtn = document.getElementById("modbtn");
+modbtn.addEventListener("click", () => chooseOperator('modulo'));
 const equalsbtn = document.getElementById("equalsbtn");
 equalsbtn.addEventListener("click", () => computeEquation(firstOperandString, operatorChoice, unassignedOperandString));
 
