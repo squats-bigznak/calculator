@@ -67,9 +67,10 @@ const display = document.querySelector('.display');
 
 const displaytext = document.createElement('div');
 displaytext.classList.add('displaytext');
-displaytext.style.color = 'red';                                      
+displaytext.style.color = 'black';
+displaytext.style.font = 'font-size: 30px';                                 
 displaytext.textContent = '';
-displaytext.style.cssText = 'color: red;';
+displaytext.style.cssText = 'color: black;';
 display.appendChild(displaytext);
 
 
